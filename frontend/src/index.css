@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-body antialiased;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Ledger-style hairline row divider used across the app instead of cards+shadows everywhere */
+.ledger-row {
+  @apply border-b border-ledger/70 last:border-b-0;
+}
+
+::selection {
+  background: #c89b3c40;
+}
+
+:focus-visible {
+  outline: 2px solid #1b1f3b;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- Landing page helpers ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 25%, transparent 72%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(100deg, #f3d488 0%, #c89b3c 55%, #e8c46b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
